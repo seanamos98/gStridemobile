@@ -10,18 +10,20 @@ import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import LoginScreen from "./screens/LoginScreen";
+import RegisterScreen from "./screens/RegisterScreen";
 
 const Stack = createStackNavigator();
-const globalScreenOption = {
+const globalScreenOptions = {
   headerStyle: { backgroundColor: "dodgerblue" },
   headerTitleStyle: { color: "#fff" },
-  headerTintStyle: { color: "#fff" },
+  headerTintColor: { color: "#fff" },
 };
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={globalScreenOption}>
+      <Stack.Navigator screenOptions={globalScreenOptions}>
         <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Register" component={RegisterScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -31,10 +33,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+    // alignItems: "center",
+    // justifyContent: "center",
     paddingTop: 20,
-    // paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   text: {
+    textAlign: "center",
     color: "#000",
     fontSize: 20,
     fontWeight: "500",
